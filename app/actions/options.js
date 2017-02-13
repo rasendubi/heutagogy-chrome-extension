@@ -25,5 +25,8 @@ const fetchUserLogin = ({ username, password }) => {
   };
 };
 
-export const loginUser = ({ username, password }) =>
-  (dispatch) => dispatch(fetchUserLogin({ username, password }));
+export const loginUser = ({ username, password }) => (dispatch) => {
+  chrome.extension.getBackgroundPage().console.log('blah-blah');
+  // console.log('loginUser', fetchUserLogin({ username, password }));
+  // dispatch(fetchUserLogin({ username, password }));
+};

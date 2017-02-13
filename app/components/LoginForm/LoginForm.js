@@ -16,6 +16,9 @@ import { loginUser } from './../../actions/options';
 import { renderTextField } from './../renders';
 import { setServerAddress } from './../../actions/server';
 
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
+
 const inlineStyles = {
   input: {
     backgroundColor: '#fafafa',
@@ -53,6 +56,7 @@ class LoginForm extends Component {
   submit = (form) => {
     form = Immutable.fromJS(form);
     this.props.setServerAddress({ address: form.get('server') });
+    chrome.extension.getBackgroundPage().console.log('blah-blah1');
     this.props.loginUser({ username: form.get('login'), password: form.get('password') });
   }
 
